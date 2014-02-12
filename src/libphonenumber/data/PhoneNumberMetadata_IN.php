@@ -220,13 +220,12 @@ return array (
                 9[7-9]
               )|
               6(?:
-                0[027]|
+                0[0127]|
                 1[0-257-9]|
                 2[0-4]|
                 3[19]|
                 5[4589]|
-                [679]\\d|
-                8[0-589]
+                [6-9]\\d
               )|
               7(?:
                 0[2-9]|
@@ -298,8 +297,9 @@ return array (
   ),
   'sharedCost' => 
   array (
-    'NationalNumberPattern' => 'NA',
-    'PossibleNumberPattern' => 'NA',
+    'NationalNumberPattern' => '1860\\d{7}',
+    'PossibleNumberPattern' => '\\d{11}',
+    'ExampleNumber' => '18603451234',
   ),
   'personalNumber' => 
   array (
@@ -318,9 +318,9 @@ return array (
   ),
   'uan' => 
   array (
-    'NationalNumberPattern' => '1860\\d{7}',
-    'PossibleNumberPattern' => '\\d{11}',
-    'ExampleNumber' => '18603451234',
+    'NationalNumberPattern' => '140\\d{7}',
+    'PossibleNumberPattern' => '\\d{10}',
+    'ExampleNumber' => '1409305260',
   ),
   'emergency' => 
   array (
@@ -362,7 +362,7 @@ return array (
                 [12]\\d{9}
               )
             )
-           )
+          )
         ',
     'PossibleNumberPattern' => '\\d{8,13}',
     'ExampleNumber' => '1800123456',
@@ -431,13 +431,12 @@ return array (
                  9[7-9]
                )|
                6(?:
-                 0[027]|
+                 0[0-27]|
                  1[0-257-9]|
                  2[0-4]|
                  3[19]|
                  5[4589]|
-                 [679]|
-                 8[0-589]
+                 [6-9]
                )|
                7(?:
                  0[2-9]|
@@ -634,8 +633,8 @@ return array (
       array (
         0 => '
              1(?:
-               [2-579]|
-               [68][1-9]
+               [23579]|
+               [468][1-9]
              )|
              [2-8]
            ',
@@ -680,6 +679,17 @@ return array (
       'domesticCarrierCodeFormattingRule' => '',
     ),
     9 => 
+    array (
+      'pattern' => '(140)(\\d{3})(\\d{4})',
+      'format' => '$1 $2 $3',
+      'leadingDigitsPatterns' => 
+      array (
+        0 => '140',
+      ),
+      'nationalPrefixFormattingRule' => '$1',
+      'domesticCarrierCodeFormattingRule' => '',
+    ),
+    10 => 
     array (
       'pattern' => '(\\d{4})(\\d{3})(\\d{4})(\\d{2})',
       'format' => '$1 $2 $3 $4',
